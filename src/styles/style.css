@@ -1,27 +1,35 @@
-* {
-    margin: 0;
-    padding: 0;
+.main {
+  padding-top: 190px;
+  margin-bottom: 231px;
 }
 
-@font-face {
-    font-family: Nonito;
-    src: url("../assets/fonts/Nunitoregular.woff");
+.main .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@font-face {
-    font-family: Nonito;
-    src: url("../assets/fonts/Nunitobold.woff");
-    font-weight: bold;
+.main-content {
+  max-width: 588px;
 }
 
-body {
-    font-family: Nonito, sans-serif;
-    overflow-x: hidden;
-    background: linear-gradient(to left, #F8F8FA 50%, #ffff 0%);
+.main-title {
+  font-weight: 'Museo Sans Cyrl Bolt', sans-serif;
+  font-size: 54px;
+  line-height: 65px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+.main-title span {
+  color: #6933dc;
 }
 
+.main-description {
+  margin-top: 40px;
+  line-height: 24px;
+  max-width: 486px;
+  font-size: 20px;
+}
+
+.main-button {
+  margin-top: 60px;
+}
