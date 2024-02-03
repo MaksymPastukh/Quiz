@@ -19,6 +19,17 @@
   max-width: 504px;
 }
 
+.form-title {
+  font-weight: "Museo Sans Cyrl Bolt", sans-serif;
+  font-size: 48px;
+  line-height: 58px;
+  color: #333333;
+}
+
+.form-title span {
+  color: #6933dc;
+}
+
 .form-details {
   margin-top: 60px;
   max-width: 485px;
@@ -67,7 +78,7 @@
   font-size: 18px;
   line-height: 22px;
   color: #6933dc;
-  font-family: "Museo Sans Cyrl Bolt", sans-serif;
+  font-weight: "Museo Sans Cyrl Bolt", sans-serif;
 }
 
 .form-label {

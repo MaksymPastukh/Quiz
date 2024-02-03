@@ -29,6 +29,27 @@ body {
   margin: 0 auto;
 }
 
+.big-title {
+  font-family: 'Museo Sans Cyrl Bolt', sans-serif;
+  font-size: 54px;
+  line-height: 65px;
+}
+
+.big-title span {
+  color: #6933dc;
+}
+
+.common-title {
+  font-family: 'Museo Sans Cyrl Bolt', sans-serif;
+  font-size: 48px;
+  line-height: 58px;
+  color: #333333;
+}
+
+.common-title span {
+  color: #6933dc;
+}
+
 .header {
   padding: 42px 0 40px;
   border-bottom: 1px solid #dcdcf3;
@@ -47,6 +68,17 @@ body {
 
 .button:hover {
   background: #3f1e85;
+}
+
+.button-transparent {
+  background: transparent;
+  color: #6933dc;
+  border: 1px solid #6933dc;
+}
+
+.button-transparent:hover {
+  background: #6933dc;
+  color: #ffffff;
 }
 
 .footer {

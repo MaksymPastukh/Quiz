@@ -19,16 +19,6 @@
   max-width: 588px;
 }
 
-.main-title {
-  font-weight: "Museo Sans Cyrl Bolt", sans-serif;
-  font-size: 54px;
-  line-height: 65px;
-}
-
-.main-title span {
-  color: #6933dc;
-}
-
 .main-description {
   margin-top: 40px;
   line-height: 24px;
