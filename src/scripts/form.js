@@ -1,5 +1,4 @@
 (function () {
-  // Делаем валидацию полей формы
   const Form = {
     agreeElement: null,
     processElement: null,
@@ -80,11 +79,8 @@
         this.processElement.setAttribute('disabled', 'disabled');
       }
 
-      console.log(isValid);
-
       return isValid;
     },
-
     processForm() {
       if (this.validateForm()) {
         let paramString = '';

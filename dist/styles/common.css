@@ -65,6 +65,16 @@ body {
   cursor: pointer;
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
+  text-decoration: none;
+}
+
+a.button {
+  display: inline-block;
+}
+
+.button:disabled {
+  background-color: #e2dfe7;
+  cursor: not-allowed;
 }
 
 .button:hover {

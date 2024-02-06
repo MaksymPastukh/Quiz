@@ -37,7 +37,7 @@
 .choice-option:hover {
   border-left: 5px solid #6933dc;
   cursor: pointer;
-  font-weight: 'Museo Sans Cyrl Bolt', sans-serif;
+  font-family: 'Museo Sans Cyrl Bolt', sans-serif;
   color: #6933dc;
 }
 

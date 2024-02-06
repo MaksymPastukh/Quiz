@@ -64,6 +64,16 @@ body {
   border: 0;
   cursor: pointer;
   transition: 0.4s ease;
+  text-decoration: none;
+}
+
+a.button {
+  display: inline-block;
+}
+
+.button:disabled {
+  background-color: #e2dfe7;
+  cursor: not-allowed;
 }
 
 .button:hover {
@@ -79,6 +89,12 @@ body {
 .button-transparent:hover {
   background: #6933dc;
   color: #ffffff;
+}
+
+.button-transparent:disabled {
+  background: transparent;
+  color: #e2dfe7;
+  border: 1px solid #e2dfe7;
 }
 
 .footer {
