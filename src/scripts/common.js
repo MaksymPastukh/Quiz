@@ -1,10 +1,16 @@
 function checkUserData() {
-  const url = new URL(location.href);
-  const name = url.searchParams.get('name');
-  const lastName = url.searchParams.get('lastName');
-  const email = url.searchParams.get('email');
+  const data = sessionStorage.getItem('clients');
 
-  if (!name || !lastName || !email) {
-    location.href('index.html');
+  if (data) {
+    let dataPars = JSON.parse(data);
+    dataPars.forEach(item => {
+      const name = item.name;
+      const lastName = item.lastName;
+      const email = item.email;
+
+      if (!name && !lastName && !email) {
+        location.href = 'index.html';
+      }
+    });
   }
 }

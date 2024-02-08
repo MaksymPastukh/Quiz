@@ -33,8 +33,23 @@
   color: #6933dc;
 }
 
+.result-success {
+  color: #5fdc33;
+}
+.result-input-success {
+  border: 5px solid #5fdc33 !important;
+}
+
+.result-error {
+  color: #dc3333;
+}
+.result-input-error {
+  border: 5px solid #dc3333 !important;
+}
+
 .result-question-title {
   margin-top: 60px;
+  margin-bottom: 40px;
   font-size: 36px;
   font-family: 'Museo Sans Cyrl Bolt', sans-serif;
   line-height: 43px;
@@ -76,4 +91,14 @@
 
 .link-result-value a img {
   margin-left: 13px;
+}
+
+.result-user-title {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.result-user-title span {
+  color: #6933dc;
+  font-family: 'Museo Sans Cyrl Bolt', sans-serif;
 }

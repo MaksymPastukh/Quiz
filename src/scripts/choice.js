@@ -1,6 +1,7 @@
 (function () {
   const Choice = {
     quizzes: [],
+    KEY_ID_QUIZ: 'id-quiz',
     init() {
       checkUserData();
 
@@ -57,8 +58,9 @@
     },
     chooseQuiz(element) {
       const dataId = element.getAttribute('data-id');
+      sessionStorage.setItem(this.KEY_ID_QUIZ, dataId);
       if (dataId) {
-        location.href = 'test.html' + location.search + '&id=' + dataId;
+        location.href = 'test.html';
       }
     },
   };

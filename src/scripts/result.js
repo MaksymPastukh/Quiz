@@ -1,9 +1,19 @@
 (function () {
   const Result = {
     init() {
-      const url = new URL(location.href);
-      document.getElementById('result-score').innerText =
-        url.searchParams.get('score') + '/' + url.searchParams.get('total');
+      checkUserData();
+
+      const resultQuiz = sessionStorage.getItem('result-response');
+      const resultQuizPars = JSON.parse(resultQuiz);
+
+      resultQuizPars.forEach(item => {
+        document.getElementById('result-score').innerText =
+          item.score + '/' + item.total;
+      });
+
+      document.getElementById('result-value').onclick = function () {
+        location.href = 'resultValue.html';
+      };
     },
   };
   Result.init();

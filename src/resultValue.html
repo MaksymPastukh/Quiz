@@ -21,32 +21,16 @@
         <div class="resultValue-pre-title">
           Результат прохождения теста
           <img src="assets/images/arrow-small.png" alt="arrow-small" />
-          <span>Тест №1. “JavaScript: Начальный уровень”</span>
+          <span id="pre-title"></span>
         </div>
         <div class="resultValue-title">
           <span>Правильные ответы</span> к тесту
         </div>
-        <div class="result-question-title">
-          <span>Вопрос 2: </span>Тут должен быть текст вопроса?
+        <div class="result-user-title">
+          Тест выполнил :
+          <span id="user-name">1</span>
         </div>
-        <div class="result-question-options">
-          <div class="result-question-option">
-            <input type="radio" id="answer-one" name="answer" />
-            <label for="answer-one">Вариант ответа 1</label>
-          </div>
-          <div class="result-question-option">
-            <input type="radio" id="answer-two" name="answer" />
-            <label for="answer-two">Вариант ответа 2</label>
-          </div>
-          <div class="result-question-option">
-            <input type="radio" id="answer-three" name="answer" />
-            <label for="answer-three">Вариант ответа 3</label>
-          </div>
-          <div class="result-question-option">
-            <input type="radio" id="answer-for" name="answer" />
-            <label for="answer-for">Вариант ответа 4</label>
-          </div>
-        </div>
+        <div class="result-question-options" id="res-options"></div>
       </div>
       <div class="link-result-value">
         <a href="javascript:void(0)" id="result-value"
@@ -56,6 +40,7 @@
       </div>
     </section>
     <footer class="footer">«АйтилогияQuiz» © Все права защищены / 2022</footer>
+    <script src="scripts/common.js"></script>
     <script src="scripts/resultValue.js"></script>
   </body>
 </html>

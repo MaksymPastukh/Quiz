@@ -94,6 +94,12 @@
   margin-left: 13px;
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
 .test-progress-bar-item {
   display: flex;
   flex-direction: column;

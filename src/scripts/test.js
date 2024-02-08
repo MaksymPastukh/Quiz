@@ -9,14 +9,15 @@
     quiz: null,
     currentQuestionIndex: 1,
     userResult: [],
+    KEY_RESULT_QUIZ: 'result-quiz',
+    KEY_RESULT_RESPONSE: 'result-response',
     init() {
       checkUserData();
-      const url = new URL(location.href);
-      const testId = url.searchParams.get('id');
-
-      if (testId) {
+      const id = sessionStorage.getItem('id-quiz');
+      const idPars = JSON.parse(id);
+      if (idPars) {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://testologia.site/get-quiz?id=' + testId, false);
+        xhr.open('GET', 'https://testologia.site/get-quiz?id=' + idPars, false);
         xhr.send();
 
         if (xhr.status === 200 && xhr.responseText) {
@@ -99,6 +100,9 @@
       const chosenOption = this.userResult.find(
         item => item.questionId === activeQuestion.id
       );
+
+      that.choose();
+
       activeQuestion.answers.forEach(answer => {
         const inputId = `answer-${answer.id}`;
 
@@ -135,6 +139,7 @@
       } else {
         this.nextButtonElement.setAttribute('disabled', 'disabled');
       }
+
       // Проверка (Если последний вопрос то меняем значение кнопки Далее на Завершить) иначе (Возвращаем значение)
       if (this.currentQuestionIndex === this.quiz.questions.length) {
         this.nextButtonElement.innerHTML = 'Завершить';
@@ -150,7 +155,11 @@
       }
     },
     chooseAnswer() {
+      this.passButtonElement.classList.add('disabled');
       this.nextButtonElement.removeAttribute('disabled');
+    },
+    choose() {
+      this.passButtonElement.classList.remove('disabled');
     },
     move(action) {
       // Получаем результаты теста и записываем в массив
@@ -181,7 +190,10 @@
         });
       }
 
-      console.log(this.userResult);
+      sessionStorage.setItem(
+        this.KEY_RESULT_QUIZ,
+        JSON.stringify(this.userResult)
+      );
 
       // Пагинация
       if (action === 'next' || action === 'pass') {
@@ -210,14 +222,20 @@
       this.showQuestion();
     },
     complete() {
-      const url = new URL(location.href);
-      const id = url.searchParams.get('id');
-      const name = url.searchParams.get('name');
-      const lastName = url.searchParams.get('lastName');
-      const email = url.searchParams.get('email');
+      const dataUsers = sessionStorage.getItem('clients');
+      const dataPars = JSON.parse(dataUsers);
+      const name = dataPars[0].name;
+      const lastName = dataPars[0].lastName;
+      const email = dataPars[0].email;
+      const idQuiz = sessionStorage.getItem('id-quiz');
+      const idQuizPars = JSON.parse(idQuiz);
 
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://testologia.site/pass-quiz?id=' + id, false);
+      xhr.open(
+        'POST',
+        'https://testologia.site/pass-quiz?id=' + idQuizPars,
+        false
+      );
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       xhr.send(
         JSON.stringify({
@@ -232,12 +250,17 @@
         let result = null;
         try {
           result = JSON.parse(xhr.responseText);
+          let resultArr = [];
+          resultArr.push(result);
+          sessionStorage.setItem(
+            this.KEY_RESULT_RESPONSE,
+            JSON.stringify(resultArr)
+          );
         } catch (e) {
           location.href('index.html');
         }
         if (result) {
-          location.href =
-            'result.html?score=' + result.score + '&total=' + result.total;
+          location.href = 'result.html';
         }
       } else {
         location.href('index.html');

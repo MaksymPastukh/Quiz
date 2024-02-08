@@ -2,19 +2,20 @@
   const Form = {
     agreeElement: null,
     processElement: null,
+    CLIENTS_KEY: 'clients',
     fields: [
       {
         name: 'name',
         id: 'name',
         element: null,
-        regex: /^[А-Я][а-я]+\s*$/,
+        // regex: /^[А-Я][а-я]+\s*$/,
         valid: false,
       },
       {
         name: 'lastName',
         id: 'last-name',
         element: null,
-        regex: /^[А-Я][а-я]+\s*$/,
+        // regex: /^[А-Я][а-я]+\s*$/,
         valid: false,
       },
       {
@@ -84,11 +85,24 @@
     processForm() {
       if (this.validateForm()) {
         let paramString = '';
+        let clients = sessionStorage.getItem(this.CLIENTS_KEY)
+          ? JSON.parse(sessionStorage.getItem(this.CLIENTS_KEY))
+          : [];
+
         this.fields.forEach(item => {
           paramString +=
             (!paramString ? '?' : '&') + item.name + '=' + item.element.value;
         });
-        location.href = 'choice.html' + paramString;
+
+        const entries = this.fields.map(item => {
+          return [item.name, item.element.value];
+        });
+
+        clients.push(Object.fromEntries(entries));
+
+        sessionStorage.setItem(this.CLIENTS_KEY, JSON.stringify(clients));
+        let sessionStorageValue = sessionStorage.getItem(this.CLIENTS_KEY);
+        location.href = 'choice.html';
       }
     },
   };
